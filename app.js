@@ -3,8 +3,7 @@ const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
 
-app.use(cors({}));
-app.use(express.json())
+
 
 const db = mysql.createConnection({
     user:'avnadmin',
@@ -12,6 +11,13 @@ const db = mysql.createConnection({
     password:'AVNS_Ro1Fi0uxIFN_I_AWzpX',
     database:'defaultdb',
 });
+
+app.use(cors({
+    origin:"http://localhost:3000",
+    credentials:true,
+    optionsSuccessStatus:200
+}));
+app.use(express.json())
 
 app.post('/save',(req,res)=>{
     const user = req.body.username;
