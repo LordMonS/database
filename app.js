@@ -7,10 +7,10 @@ app.use(cors({}));
 app.use(express.json())
 
 const db = mysql.createConnection({
-    user:'root',
-    host:'localhost',
-    password:'',
-    database:'test'
+    user:'avnadmin',
+    host:'database-1-database-001.a.aivencloud.com',
+    password:'AVNS_Ro1Fi0uxIFN_I_AWzpX',
+    database:'defaultdb',
 });
 
 app.post('/save',(req,res)=>{
