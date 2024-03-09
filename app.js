@@ -13,9 +13,9 @@ const db = mysql.createConnection({
 });
 
 app.use(cors({
-    origin:"http://localhost:3000",
-    credentials:true,
-    optionsSuccessStatus:200
+    allowedHeaders:"*",
+    allowMethods: "*",
+    origin:"*"
 }));
 app.use(express.json())
 
