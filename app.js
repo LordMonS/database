@@ -21,7 +21,11 @@ app.use(express.json())
 
 app.post('/save',(req,res)=>{
     const user = req.body.username;
-
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Max-Age", "1800");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
     db.query('SELECT * FROM user WHERE user = ?',[user], (err, results)=>{
         if(results.length<=0){
             db.query('INSERT INTO user (user) VALUES (?)',[user], (err, r)=>{
